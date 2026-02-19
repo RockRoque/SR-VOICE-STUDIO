@@ -1,0 +1,206 @@
+/**
+ * typography.css
+ * Type scale for Sarah Roque Voice Studio
+ *
+ * Why: All type styles are defined as composable utility classes tied to
+ * design tokens. HTML elements carry no implicit type styles — everything
+ * is intentional and overridable without specificity fights.
+ *
+ * Font: Newsreader (Google Fonts)
+ * Weights used: 200 ExtraLight, 300 Light, 400 Normal, 500 Medium, 600 SemiBold
+ *
+ * Class naming convention:
+ *   .text-[role]  — matches the design's named text style
+ */
+
+/* ============================================================
+   "SARAH ROQUE" — Hero name lockup
+   Desktop: 40px / Light 300 / Italic / Capitalize
+   Mobile:  32px
+   ============================================================ */
+.text-hero-name {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-light);     /* 300 */
+  font-size: var(--font-size-hero-name);     /* 40px */
+  font-style: italic;
+  text-transform: capitalize;
+  line-height: 1.1;
+}
+
+/* ============================================================
+   "VOICE STUDIO" — Hero studio lockup
+   Desktop: 128px / ExtraLight 200 / Italic / Capitalize
+   Mobile:  64px
+   ============================================================ */
+.text-hero-studio {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-extralight); /* 200 */
+  font-size: var(--font-size-hero-studio);    /* 128px */
+  font-style: italic;
+  text-transform: capitalize;
+  line-height: 0.9;
+}
+
+/* ============================================================
+   SECTION HEADINGS — e.g. "about", "services", "rates"
+   Desktop: 128px / Medium 500 / Italic / Lowercase
+   Mobile:  48px
+   ============================================================ */
+.text-section-heading {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-medium);   /* 500 */
+  font-size: var(--font-size-section);      /* 128px */
+  font-style: italic;
+  text-transform: lowercase;
+  line-height: 0.9;
+}
+
+/* ============================================================
+   INTRO / "I'M SARAH..." — Large personal statement
+   Desktop: 96px / Medium 500 / Italic / Lowercase
+   Mobile:  64px
+   ============================================================ */
+.text-intro {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-medium);   /* 500 */
+  font-size: var(--font-size-intro);        /* 96px */
+  font-style: italic;
+  text-transform: lowercase;
+  line-height: 1.0;
+}
+
+/* ============================================================
+   SUB-HEADINGS — Card labels, rate titles, small section labels
+   Desktop: 40px / SemiBold 600 / Capitalize
+   Mobile:  32px
+   ============================================================ */
+.text-subheading {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-semibold); /* 600 */
+  font-size: var(--font-size-subheading);   /* 40px */
+  font-style: normal;
+  text-transform: capitalize;
+  line-height: 1.2;
+}
+
+/* ============================================================
+   BODY TEXT — Paragraphs, descriptions
+   Desktop: 32px / Light 300 / Lowercase
+   Mobile:  24px
+   ============================================================ */
+.text-body {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-light);    /* 300 */
+  font-size: var(--font-size-body);         /* 32px */
+  font-style: normal;
+  text-transform: lowercase;
+  line-height: 1.35;
+}
+
+/* ============================================================
+   NAVIGATION — Nav links
+   Desktop: 48px / Normal 400 / Italic / Lowercase
+   (Navigation does not have a separate mobile size in the spec —
+    the mobile nav is a full-screen overlay that reuses desktop size)
+   ============================================================ */
+.text-nav {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-normal);   /* 400 */
+  font-size: var(--font-size-nav);          /* 48px */
+  font-style: italic;
+  text-transform: lowercase;
+  line-height: 1.2;
+}
+
+/* ============================================================
+   MOTIVATIONAL QUOTES — Divider / interstitial quotes
+   Desktop: 64px / ExtraLight 200 / Lowercase / Mixed italic
+   Mobile:  40–48px (use 44px as midpoint)
+   ============================================================ */
+.text-quote {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-extralight); /* 200 */
+  font-size: var(--font-size-quote);           /* 64px */
+  font-style: normal;
+  text-transform: lowercase;
+  line-height: 1.15;
+}
+
+/* Italic variant for mixed-style quotes */
+.text-quote em,
+.text-quote-italic {
+  font-style: italic;
+}
+
+/* ============================================================
+   FAQ QUESTIONS
+   Desktop: 40px / Light 300 / Lowercase
+   Mobile:  24px
+   ============================================================ */
+.text-faq-question {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-light);    /* 300 */
+  font-size: var(--font-size-faq);          /* 40px */
+  font-style: normal;
+  text-transform: lowercase;
+  line-height: 1.2;
+}
+
+/* ============================================================
+   BUTTON TEXT
+   Desktop: 32px / Medium 500 / Lowercase
+   Mobile:  24px
+   ============================================================ */
+.text-button {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-medium);   /* 500 */
+  font-size: var(--font-size-button);       /* 32px */
+  font-style: normal;
+  text-transform: lowercase;
+  line-height: 1.0;
+}
+
+/* ============================================================
+   MOBILE OVERRIDES
+   Breakpoint: 768px (matches layout.css and tokens.css)
+   ============================================================ */
+@media (max-width: 768px) {
+  .text-hero-name {
+    font-size: 32px;
+  }
+
+  .text-hero-studio {
+    font-size: 64px;
+  }
+
+  .text-section-heading {
+    font-size: 48px;
+  }
+
+  .text-intro {
+    font-size: 64px;
+  }
+
+  .text-subheading {
+    font-size: 32px;
+  }
+
+  .text-body {
+    font-size: 24px;
+  }
+
+  /* Navigation reuses desktop size in the full-screen overlay;
+     no change needed unless a smaller label appears in-page */
+
+  .text-quote {
+    font-size: 44px;   /* midpoint of spec's 40–48px mobile range */
+  }
+
+  .text-faq-question {
+    font-size: 24px;
+  }
+
+  .text-button {
+    font-size: 24px;
+  }
+}

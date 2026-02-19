@@ -1,0 +1,6 @@
+packages:
+  - site
+  - admin-dashboard
+  - functions
+
+managePackageManagerVersions: true

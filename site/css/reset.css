@@ -1,0 +1,208 @@
+/**
+ * reset.css
+ * Modern CSS reset for Sarah Roque Voice Studio
+ *
+ * Why: Normalizes browser defaults so components render consistently
+ * across Chrome, Firefox, Safari, and Edge without fighting user-agent
+ * stylesheets. Based on Andy Bell's modern reset with additions for
+ * accessibility and motion sensitivity.
+ */
+
+/* ============================================================
+   BOX MODEL
+   ============================================================ */
+
+/* Prevent padding and borders from expanding element dimensions */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ============================================================
+   DOCUMENT
+   ============================================================ */
+
+html {
+  /* Smooth anchor scrolling without jarring jumps */
+  scroll-behavior: smooth;
+
+  /* Prevent font size inflation on mobile orientation change */
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+
+  /* Ensure the html element always fills the viewport */
+  height: 100%;
+}
+
+/* ============================================================
+   BODY
+   ============================================================ */
+
+body {
+  font-family: var(--font-family, 'Newsreader', Georgia, serif);
+
+  /* Comfortable reading line height */
+  line-height: 1.2;
+
+  /* Crisp text rendering on macOS/iOS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Apply theme colors */
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+
+  /* Smooth theme transitions */
+  transition: var(--transition-theme);
+
+  min-height: 100%;
+}
+
+/* ============================================================
+   MEDIA ELEMENTS
+   ============================================================ */
+
+/* Prevent images and media from overflowing their containers */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Remove SVG's default outline in older browsers */
+svg {
+  overflow: hidden;
+}
+
+/* ============================================================
+   LISTS
+   ============================================================ */
+
+/* Remove list semantics only when lists are used purely for layout.
+   Semantic lists (e.g., ingredients) should use list-style via component CSS. */
+ul,
+ol {
+  list-style: none;
+}
+
+/* ============================================================
+   TYPOGRAPHY ELEMENTS
+   ============================================================ */
+
+/* Allow long words to break to prevent overflow */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+figcaption {
+  overflow-wrap: break-word;
+}
+
+/* Remove default heading styles — typography.css controls sizing */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/* Remove default blockquote/q styles */
+blockquote,
+q {
+  quotes: none;
+}
+
+/* ============================================================
+   INTERACTIVE ELEMENTS
+   ============================================================ */
+
+/* Make buttons and inputs inherit font instead of using browser default */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+/* Remove default button styles — components.css handles all button styling */
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Remove default anchor decoration — components handles links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ============================================================
+   FORM ELEMENTS
+   ============================================================ */
+
+/* Ensure textareas respect container width */
+textarea {
+  resize: vertical;
+}
+
+/* Remove number input spinners */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* ============================================================
+   TABLE
+   ============================================================ */
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* ============================================================
+   REDUCED MOTION
+   Why: Users who have vestibular disorders or motion sensitivity
+   opt-in to reduced motion via their OS. Honoring this improves
+   accessibility significantly.
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}

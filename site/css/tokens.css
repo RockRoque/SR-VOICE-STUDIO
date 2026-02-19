@@ -1,0 +1,138 @@
+/**
+ * tokens.css
+ * Design tokens for Sarah Roque Voice Studio
+ *
+ * Why: Centralizes all design decisions in one place so every component
+ * references variables rather than hard-coded values. Theme switching is
+ * a single attribute change on <html>.
+ *
+ * Usage:
+ *   Light theme (default) — :root
+ *   Dark theme             — [data-theme="dark"] on <html>
+ *   System preference      — @media (prefers-color-scheme: dark) fallback
+ */
+
+/* ============================================================
+   LIGHT THEME (default)
+   ============================================================ */
+:root {
+  /* --- Colors: Backgrounds ---------------------------------- */
+  --color-bg:              #fff2d8;
+  --color-card-bg:         #fff2d8;
+
+  /* --- Colors: Text ----------------------------------------- */
+  --color-text-primary:    #000000;
+  --color-text-secondary:  rgba(0, 0, 0, 0.8);
+
+  /* --- Colors: Borders -------------------------------------- */
+  --color-card-border:     rgba(0, 0, 0, 0.8);
+  --color-faq-border:      #000000;
+  --color-divider:         rgba(0, 0, 0, 0.3);
+
+  /* --- Colors: Buttons -------------------------------------- */
+  --color-btn-cta-bg:      rgba(0, 0, 0, 0.88);
+  --color-btn-cta-text:    #fff2d8;
+  --color-btn-book-bg:     rgba(0, 0, 0, 0.88);
+  --color-btn-book-text:   #d9d9d9;
+
+  /* --- Typography: Family ----------------------------------- */
+  --font-family:           'Newsreader', Georgia, serif;
+
+  /* --- Typography: Weights ---------------------------------- */
+  --font-weight-extralight: 200;
+  --font-weight-light:      300;
+  --font-weight-normal:     400;
+  --font-weight-medium:     500;
+  --font-weight-semibold:   600;
+
+  /* --- Typography: Sizes (desktop) ------------------------- */
+  --font-size-hero-name:    40px;      /* "Sarah Roque" */
+  --font-size-hero-studio:  128px;     /* "Voice Studio" */
+  --font-size-section:      128px;     /* Section headings */
+  --font-size-intro:        96px;      /* "I'm Sarah..." */
+  --font-size-subheading:   40px;      /* Sub-headings */
+  --font-size-body:         32px;      /* Body text */
+  --font-size-nav:          48px;      /* Navigation */
+  --font-size-quote:        64px;      /* Motivational quotes */
+  --font-size-faq:          40px;      /* FAQ questions */
+  --font-size-button:       32px;      /* Buttons */
+
+  /* --- Spacing ---------------------------------------------- */
+  --space-1:  8px;
+  --space-2:  16px;
+  --space-3:  24px;
+  --space-4:  32px;
+  --space-5:  48px;
+  --space-6:  64px;
+  --space-7:  96px;
+  --space-8:  128px;
+
+  --section-padding-y:   80px;
+  --section-padding-x:   40px;
+  --card-gap:            30px;
+
+  /* --- Layout ----------------------------------------------- */
+  --max-width:            1200px;
+  --frame-width-desktop:  1458px;
+  --frame-width-mobile:   402px;
+
+  /* --- Cards ------------------------------------------------ */
+  --card-width-desktop:   380px;
+  --card-height:          525px;
+  --card-width-mobile:    339px;
+
+  /* --- Borders ---------------------------------------------- */
+  --border-radius-sm:    6px;
+  --border-radius-md:    8px;
+  --card-border-width:   3px;
+
+  /* --- Transitions ------------------------------------------ */
+  --transition-theme:    background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  --transition-fast:     0.15s ease;
+  --transition-medium:   0.3s ease;
+}
+
+/* ============================================================
+   DARK THEME — explicit attribute
+   ============================================================ */
+[data-theme="dark"] {
+  /* --- Colors: Backgrounds ---------------------------------- */
+  --color-bg:              #130f0c;
+  --color-card-bg:         transparent;
+
+  /* --- Colors: Text ----------------------------------------- */
+  --color-text-primary:    #fff2d8;
+  --color-text-secondary:  rgba(255, 242, 216, 0.8);
+
+  /* --- Colors: Borders -------------------------------------- */
+  --color-card-border:     #fff2d8;
+  --color-faq-border:      #fff2d8;
+  --color-divider:         rgba(255, 242, 216, 0.3);
+
+  /* --- Colors: Buttons -------------------------------------- */
+  --color-btn-cta-bg:      #fff2d8;
+  --color-btn-cta-text:    rgba(0, 0, 0, 0.8);
+  --color-btn-book-bg:     #fff2d8;
+  --color-btn-book-text:   rgba(0, 0, 0, 0.8);
+}
+
+/* ============================================================
+   DARK THEME — system preference fallback
+   Applied when no data-theme is set and the OS is in dark mode.
+   The explicit [data-theme="dark"] above takes precedence.
+   ============================================================ */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-bg:              #130f0c;
+    --color-card-bg:         transparent;
+    --color-text-primary:    #fff2d8;
+    --color-text-secondary:  rgba(255, 242, 216, 0.8);
+    --color-card-border:     #fff2d8;
+    --color-faq-border:      #fff2d8;
+    --color-divider:         rgba(255, 242, 216, 0.3);
+    --color-btn-cta-bg:      #fff2d8;
+    --color-btn-cta-text:    rgba(0, 0, 0, 0.8);
+    --color-btn-book-bg:     #fff2d8;
+    --color-btn-book-text:   rgba(0, 0, 0, 0.8);
+  }
+}

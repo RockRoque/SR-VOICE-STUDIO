@@ -1,0 +1,538 @@
+/**
+ * components.css
+ * UI component styles for Sarah Roque Voice Studio
+ *
+ * Why: Each component is a self-contained block. Styles read the design
+ * tokens from tokens.css so theme switching requires no JS beyond toggling
+ * data-theme on <html>. Components do not include layout/positioning — that
+ * is handled by layout.css and the parent context.
+ *
+ * Order:
+ *   1. Buttons
+ *   2. Cards
+ *   3. Navigation
+ *   4. Accordion (FAQ)
+ *   5. Gallery mobile
+ *   6. Divider
+ *   7. Heart icon
+ *   8. Theme toggle
+ */
+
+/* ============================================================
+   1. BUTTONS
+   ============================================================ */
+
+/**
+ * .btn — Base button
+ * All buttons start here and extend with a modifier class.
+ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Typography */
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-medium);  /* 500 */
+  font-size: var(--font-size-button);      /* 32px */
+  text-transform: lowercase;
+  line-height: 1;
+  white-space: nowrap;
+
+  /* Shape */
+  border-radius: var(--border-radius-sm);   /* 6px */
+  border: none;
+  padding: 0.6em 1.25em;
+
+  /* Interaction */
+  cursor: pointer;
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast),
+    opacity var(--transition-fast);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-text-primary);
+  outline-offset: 3px;
+}
+
+.btn:hover {
+  opacity: 0.88;
+}
+
+.btn:active {
+  opacity: 0.75;
+  transform: translateY(1px);
+}
+
+/**
+ * .btn-cta — Primary call-to-action button
+ * Light: dark background, cream text
+ * Dark:  cream background, dark text
+ */
+.btn-cta {
+  background-color: var(--color-btn-cta-bg);
+  color: var(--color-btn-cta-text);
+}
+
+/**
+ * .btn-book — Booking button inside rate cards
+ * Light: dark background, slightly dim text (#d9d9d9)
+ * Dark:  cream background, dark text
+ */
+.btn-book {
+  background-color: var(--color-btn-book-bg);
+  color: var(--color-btn-book-text);
+  width: 100%;  /* Full width within rate card */
+}
+
+/* ============================================================
+   2. CARDS
+   ============================================================ */
+
+/**
+ * .card — Base card component
+ */
+.card {
+  background-color: var(--color-card-bg);
+  border: var(--card-border-width) solid var(--color-card-border);
+  border-radius: var(--border-radius-md);  /* 8px */
+  transition: var(--transition-theme);
+  overflow: hidden;
+}
+
+/**
+ * .card-rate — Rate/pricing card
+ * Desktop: 380px × 525px
+ * Mobile:  339px × 525px
+ * Displays a service tier with name, details, and booking button.
+ */
+.card-rate {
+  width: var(--card-width-desktop);   /* 380px */
+  height: var(--card-height);         /* 525px */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--space-4);            /* 32px */
+}
+
+.card-rate__header {
+  flex: 0 0 auto;
+}
+
+.card-rate__body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);               /* 16px */
+  margin-block: var(--space-3);      /* 24px */
+}
+
+.card-rate__footer {
+  flex: 0 0 auto;
+}
+
+/**
+ * .card-review — Testimonial / review card
+ * Flexible height, matches card base border treatment.
+ */
+.card-review {
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);               /* 24px */
+}
+
+.card-review__quote {
+  flex: 1 1 auto;
+}
+
+.card-review__attribution {
+  flex: 0 0 auto;
+  opacity: 0.7;
+}
+
+/* ============================================================
+   3. NAVIGATION
+   ============================================================ */
+
+/**
+ * .nav — Top navigation container
+ */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-block: var(--space-3);      /* 24px top & bottom */
+  padding-inline: var(--section-padding-x);
+}
+
+/**
+ * .nav-link — Individual navigation link
+ * Inherits .text-nav styles from typography.css
+ */
+.nav-link {
+  display: inline-block;
+  color: var(--color-text-primary);
+  transition: opacity var(--transition-fast);
+}
+
+.nav-link:hover {
+  opacity: 0.65;
+}
+
+.nav-link:focus-visible {
+  outline: 2px solid var(--color-text-primary);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/**
+ * .nav-links — Desktop link group
+ */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);               /* 48px between links */
+}
+
+/**
+ * .nav-hamburger — Mobile-only menu trigger
+ * Hidden on desktop; shown as a tap target on mobile.
+ */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--color-text-primary);
+}
+
+.nav-hamburger__bar {
+  display: block;
+  width: 28px;
+  height: 2px;
+  background-color: currentColor;
+  border-radius: 2px;
+  transition: transform var(--transition-medium), opacity var(--transition-fast);
+}
+
+/* Animated X when open */
+.nav-hamburger[aria-expanded="true"] .nav-hamburger__bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.nav-hamburger[aria-expanded="true"] .nav-hamburger__bar:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-hamburger[aria-expanded="true"] .nav-hamburger__bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/**
+ * .nav-mobile — Full-screen overlay navigation for mobile
+ */
+.nav-mobile {
+  display: none;                     /* JS adds .is-open to show */
+  position: fixed;
+  inset: 0;                          /* covers entire viewport */
+  z-index: 100;
+  background-color: var(--color-bg);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-5);               /* 48px between links */
+  padding: var(--space-6);
+  transition: var(--transition-theme);
+}
+
+.nav-mobile.is-open {
+  display: flex;
+}
+
+.nav-mobile .nav-link {
+  font-size: var(--font-size-nav);   /* 48px */
+  font-style: italic;
+  text-transform: lowercase;
+}
+
+/* ============================================================
+   4. ACCORDION (FAQ)
+   ============================================================ */
+
+/**
+ * .accordion — FAQ container
+ */
+.accordion {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/**
+ * .accordion-item — Single FAQ entry
+ * Top border on every item; bottom border only on the last.
+ */
+.accordion-item {
+  border-top: 1px solid var(--color-faq-border);
+}
+
+.accordion-item:last-child {
+  border-bottom: 1px solid var(--color-faq-border);
+}
+
+/**
+ * .accordion-header — Clickable question row
+ */
+.accordion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-block: var(--space-3);     /* 24px */
+  padding-inline: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  color: var(--color-text-primary);
+
+  /* Typography matches .text-faq-question */
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-light);
+  font-size: var(--font-size-faq);
+  text-transform: lowercase;
+
+  transition: opacity var(--transition-fast);
+}
+
+.accordion-header:hover {
+  opacity: 0.7;
+}
+
+.accordion-header:focus-visible {
+  outline: 2px solid var(--color-text-primary);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/**
+ * .accordion-chevron — Rotating indicator arrow
+ * Rotates 180° when expanded.
+ */
+.accordion-chevron {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  color: var(--color-text-primary);
+  transition: transform var(--transition-medium);
+}
+
+.accordion-item.is-open .accordion-chevron {
+  transform: rotate(180deg);
+}
+
+/**
+ * .accordion-content — Answer body
+ * Hidden by default; max-height animation on .is-open toggle.
+ * Why max-height: allows CSS-only animation without JS measuring element height.
+ */
+.accordion-content {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height var(--transition-medium);
+}
+
+.accordion-item.is-open .accordion-content {
+  /* Large enough to never clip real content; animation still reads as natural */
+  max-height: 600px;
+}
+
+.accordion-content__inner {
+  padding-bottom: var(--space-3);    /* 24px */
+  color: var(--color-text-secondary);
+
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-light);
+  font-size: var(--font-size-body);  /* 32px desktop */
+  text-transform: lowercase;
+  line-height: 1.4;
+}
+
+/* ============================================================
+   5. GALLERY MOBILE — Overlapping effect
+   Desktop gallery is handled by .gallery-grid in layout.css.
+   This class adds the mobile-specific overlapping stagger.
+   ============================================================ */
+
+/**
+ * .gallery-mobile — Container for the mobile gallery strip.
+ * Applied as an additional modifier alongside .gallery-grid on mobile.
+ */
+.gallery-mobile {
+  /* Items overlap with negative margin to create stacked effect */
+  gap: 0;
+}
+
+.gallery-mobile .gallery-grid__item {
+  /* Slight overlap to adjacent item */
+  margin-inline-end: -24px;
+  border-radius: var(--border-radius-md);
+
+  /* Each item slightly raised above the previous via z-index cascade */
+  position: relative;
+}
+
+/* The last visible item has no negative margin */
+.gallery-mobile .gallery-grid__item:last-child {
+  margin-inline-end: 0;
+}
+
+/* ============================================================
+   6. DIVIDER — Section divider with quote text
+   ============================================================ */
+
+/**
+ * .divider — Full-width horizontal rule with centered quote
+ */
+.divider {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);               /* 24px */
+  padding-block: var(--space-4);     /* 32px */
+  color: var(--color-text-secondary);
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1 1 auto;
+  height: 1px;
+  background-color: var(--color-divider);
+}
+
+.divider__text {
+  flex: 0 0 auto;
+  text-align: center;
+  max-width: 60%;
+
+  /* Typography matches .text-quote */
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-extralight);
+  font-size: var(--font-size-quote);
+  text-transform: lowercase;
+  line-height: 1.15;
+}
+
+/* ============================================================
+   7. HEART ICON — Pink accent icon
+   ============================================================ */
+
+/**
+ * .heart-icon — Decorative heart element.
+ * On mobile it rotates slightly for a playful effect.
+ */
+.heart-icon {
+  display: inline-block;
+  color: #e88fa6;                    /* soft pink — intentionally hard-coded accent */
+  line-height: 1;
+  transition: transform var(--transition-medium);
+}
+
+@media (max-width: 768px) {
+  .heart-icon {
+    transform: rotate(-12deg);
+  }
+}
+
+/* ============================================================
+   8. THEME TOGGLE — Light/dark mode switch button
+   ============================================================ */
+
+/**
+ * .theme-toggle — Accessible button to toggle the color scheme.
+ * Rendered as an icon-only button with a visible label for screen readers.
+ */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;                       /* minimum tap target */
+  height: 44px;
+  border-radius: 50%;
+  background: none;
+  border: 1px solid var(--color-text-secondary);
+  cursor: pointer;
+  color: var(--color-text-primary);
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.theme-toggle:hover {
+  background-color: var(--color-divider);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--color-text-primary);
+  outline-offset: 3px;
+}
+
+.theme-toggle__icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   MOBILE COMPONENT ADJUSTMENTS
+   ============================================================ */
+@media (max-width: 768px) {
+  /* --- Buttons --- */
+  .btn {
+    font-size: var(--font-size-button); /* overridden to 24px via tokens mobile override */
+    padding: 0.7em 1.5em;
+  }
+
+  /* --- Rate cards --- */
+  .card-rate {
+    width: var(--card-width-mobile);  /* 339px */
+    /* Height stays 525px per spec */
+  }
+
+  /* --- Navigation --- */
+  .nav-links {
+    display: none;                    /* hidden; replaced by .nav-mobile overlay */
+  }
+
+  .nav-hamburger {
+    display: flex;                    /* visible on mobile */
+  }
+
+  /* --- Accordion --- */
+  .accordion-header {
+    font-size: var(--font-size-faq);  /* 24px via typography.css mobile override */
+  }
+
+  .accordion-content__inner {
+    font-size: var(--font-size-body); /* 24px via typography.css mobile override */
+  }
+
+  /* --- Divider --- */
+  .divider__text {
+    font-size: 44px;                  /* matches .text-quote mobile */
+    max-width: 80%;
+  }
+}

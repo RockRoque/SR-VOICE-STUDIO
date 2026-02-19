@@ -1,0 +1,19 @@
+{
+  "reviews": [
+    {
+      "name": "client name",
+      "text": "placeholder review text — will be updated with real reviews.",
+      "photo": ""
+    },
+    {
+      "name": "client name",
+      "text": "placeholder review text — will be updated with real reviews.",
+      "photo": ""
+    },
+    {
+      "name": "client name",
+      "text": "placeholder review text — will be updated with real reviews.",
+      "photo": ""
+    }
+  ]
+}

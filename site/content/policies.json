@@ -1,0 +1,19 @@
+{
+  "policies": [
+    {
+      "title": "scheduling",
+      "icon": "calendar",
+      "text": "lessons are scheduled via the online booking system. please book at least 24 hours in advance."
+    },
+    {
+      "title": "payments & invoicing",
+      "icon": "credit-card",
+      "text": "payment is due at the time of booking. invoices are sent via wave for package purchases."
+    },
+    {
+      "title": "cancellations",
+      "icon": "x-circle",
+      "text": "cancellations require 24-hour notice. late cancellations or no-shows may be charged the full lesson rate."
+    }
+  ]
+}

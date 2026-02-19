@@ -1,0 +1,84 @@
+backend:
+  name: github
+  repo: RockRoque/SR-VOICE-STUDIO
+  branch: main
+
+media_folder: "site/assets/images"
+public_folder: "/assets/images"
+
+collections:
+  - name: "rates"
+    label: "Rates"
+    files:
+      - name: "rates"
+        label: "Rate Cards"
+        file: "site/content/rates.json"
+        fields:
+          - name: "rates"
+            label: "Rate Cards"
+            widget: "list"
+            fields:
+              - { name: "title", label: "Title", widget: "string" }
+              - { name: "price", label: "Price (cents)", widget: "number" }
+              - { name: "priceDisplay", label: "Price Display", widget: "string" }
+              - { name: "description", label: "Description", widget: "text" }
+              - { name: "features", label: "Features", widget: "list", field: { name: "feature", label: "Feature", widget: "string" } }
+              - { name: "checkoutUrl", label: "Wave Checkout URL", widget: "string" }
+
+  - name: "reviews"
+    label: "Reviews"
+    files:
+      - name: "reviews"
+        label: "Client Reviews"
+        file: "site/content/reviews.json"
+        fields:
+          - name: "reviews"
+            label: "Reviews"
+            widget: "list"
+            fields:
+              - { name: "name", label: "Client Name", widget: "string" }
+              - { name: "text", label: "Review Text", widget: "text" }
+              - { name: "photo", label: "Photo", widget: "image", required: false }
+
+  - name: "faqs"
+    label: "FAQs"
+    files:
+      - name: "faqs"
+        label: "Frequently Asked Questions"
+        file: "site/content/faqs.json"
+        fields:
+          - name: "faqs"
+            label: "FAQs"
+            widget: "list"
+            fields:
+              - { name: "question", label: "Question", widget: "string" }
+              - { name: "answer", label: "Answer", widget: "text" }
+
+  - name: "policies"
+    label: "Policies"
+    files:
+      - name: "policies"
+        label: "Studio Policies"
+        file: "site/content/policies.json"
+        fields:
+          - name: "policies"
+            label: "Policies"
+            widget: "list"
+            fields:
+              - { name: "title", label: "Title", widget: "string" }
+              - { name: "icon", label: "Icon", widget: "string" }
+              - { name: "text", label: "Policy Text", widget: "text" }
+
+  - name: "gallery"
+    label: "Gallery"
+    files:
+      - name: "gallery"
+        label: "Photo Gallery"
+        file: "site/content/gallery.json"
+        fields:
+          - name: "images"
+            label: "Images"
+            widget: "list"
+            fields:
+              - { name: "src", label: "Image", widget: "image" }
+              - { name: "alt", label: "Alt Text", widget: "string" }

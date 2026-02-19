@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sarah Roque Voice Studio</title>
+  <meta name="description" content="Voice lessons in Alexandria, VA with Sarah Roque. Build confidence, find your sound, and own your voice.">
+
+  <!-- Google Fonts: Newsreader -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200;0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,200;1,6..72,300;1,6..72,400;1,6..72,500;1,6..72,600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/utilities.css">
+</head>
+<body>
+  <!-- Theme Toggle -->
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+    <span class="theme-toggle__icon" aria-hidden="true"></span>
+  </button>
+
+  <!-- Header / Hero -->
+  <header id="hero" class="section hero">
+    <div class="section-content">
+      <h1>
+        <span class="text-hero-name">Sarah Roque</span>
+        <span class="text-hero-studio">Voice Studio</span>
+      </h1>
+      <!-- Microphone divider icon placeholder -->
+      <div class="hero__mic-divider" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="nav" id="main-nav" aria-label="Main navigation">
+    <ul class="nav__list">
+      <li><a href="#about" class="nav-link text-nav">about</a></li>
+      <li><a href="#schedule" class="nav-link text-nav">schedule</a></li>
+      <li><a href="#rates" class="nav-link text-nav">rates</a></li>
+      <li><a href="#gallery" class="nav-link text-nav">gallery</a></li>
+      <li><a href="#reviews" class="nav-link text-nav">reviews</a></li>
+      <li><a href="#policies" class="nav-link text-nav">policies</a></li>
+      <li><a href="#faqs" class="nav-link text-nav">faqs</a></li>
+    </ul>
+    <!-- Mobile hamburger -->
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <span class="nav-hamburger__line"></span>
+      <span class="nav-hamburger__line"></span>
+      <span class="nav-hamburger__line"></span>
+    </button>
+  </nav>
+
+  <!-- Quote Divider 1 -->
+  <div class="divider" aria-hidden="true">
+    <p class="text-quote">claim your time — future you will thank you.</p>
+  </div>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="section-content">
+      <h2 class="text-section-heading">about</h2>
+      <div class="grid-2col">
+        <div class="about__photo">
+          <!-- Sarah's photo placeholder -->
+          <div class="placeholder-image" aria-label="Photo of Sarah Roque"></div>
+        </div>
+        <div class="about__bio">
+          <p class="text-intro">i'm sarah...</p>
+          <p class="text-body"><!-- Bio text loaded from CMS --></p>
+          <a href="#schedule" class="btn btn-cta text-button">
+            book a free intro lesson
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote Divider 2 -->
+  <div class="divider" aria-hidden="true">
+    <p class="text-quote">own your voice.</p>
+  </div>
+
+  <!-- Schedule Section -->
+  <section id="schedule" class="section">
+    <div class="section-content">
+      <h2 class="text-section-heading">schedule</h2>
+      <!-- Cal.com embed placeholder -->
+      <div id="calcom-embed" class="schedule__embed">
+        <p class="text-body">Loading scheduling...</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rates Section -->
+  <section id="rates" class="section">
+    <div class="section-content">
+      <h2 class="text-section-heading">rates</h2>
+      <div class="grid-3col" id="rates-container">
+        <!-- Rate cards loaded from CMS JSON -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote Divider 3 -->
+  <div class="divider" aria-hidden="true">
+    <p class="text-quote">your sound is your power.</p>
+  </div>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="section">
+    <div class="section-content">
+      <h2 class="text-section-heading">gallery</h2>
+      <div class="gallery-grid" id="gallery-container">
+        <!-- Gallery images loaded from CMS JSON -->
+      </div>
+      <p class="text-body hidden-desktop gallery__swipe-hint">swipe to see photos</p>
+    </div>
+  </section>
+
+  <!-- Reviews Section -->
+  <section id="reviews" class="section">
+    <div class="section-content">
+      <h2 class="text-section-heading">reviews</h2>
+      <div class="grid-3col" id="reviews-container">
+        <!-- Review cards loaded from CMS JSON -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Heart + Quote -->
+  <div class="divider" aria-hidden="true">
+    <p class="text-quote">this is why i do what i do.</p>
+    <img src="assets/icons/heart.svg" alt="" class="heart-icon" aria-hidden="true">
+  </div>
+
+  <!-- Policies Section -->
+  <section id="policies" class="section">
+    <div class="section-content">
+      <h2 class="text-section-heading">policies</h2>
+      <div class="grid-3col" id="policies-container">
+        <!-- Policies loaded from CMS JSON -->
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs Section -->
+  <section id="faqs" class="section">
+    <div class="section-content">
+      <h2 class="text-section-heading">faqs</h2>
+      <div class="accordion" id="faqs-container" role="list">
+        <!-- FAQ items loaded from CMS JSON -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer" class="section footer">
+    <div class="section-content">
+      <p class="text-body">&copy; 2026 Sarah Roque Voice Studio. Alexandria, VA.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/theme-toggle.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/accordion.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/content-loader.js"></script>
+</body>
+</html>
