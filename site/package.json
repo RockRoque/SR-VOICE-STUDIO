@@ -1,0 +1,9 @@
+{
+  "name": "sr-voice-studio-site",
+  "private": true,
+  "scripts": {
+    "dev": "npx serve .",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  }
+}

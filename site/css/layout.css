@@ -1,0 +1,181 @@
+/**
+ * layout.css
+ * Page structure and grid system for Sarah Roque Voice Studio
+ *
+ * Why: Layout concerns are separated from component styles so structural
+ * changes (e.g., switching from 3-column to 2-column) never require
+ * touching component files.
+ *
+ * Breakpoint: 768px (mobile frame target is 402px)
+ */
+
+/* ============================================================
+   PAGE CONTAINER
+   Centers all content within the 1200px design width
+   ============================================================ */
+.page-container {
+  width: 100%;
+  max-width: var(--max-width);          /* 1200px */
+  margin-inline: auto;                  /* horizontal centering */
+  padding-inline: var(--section-padding-x); /* 40px each side */
+}
+
+/* ============================================================
+   SECTION
+   Full-bleed wrapper — backgrounds/colors are applied here.
+   Content is constrained by .section-content inside.
+   ============================================================ */
+.section {
+  width: 100%;
+  padding-block: var(--section-padding-y); /* 80px top + bottom */
+}
+
+/* Tighter top padding for sections that follow immediately */
+.section--flush-top {
+  padding-top: 0;
+}
+
+/* ============================================================
+   SECTION CONTENT
+   Constrained inner wrapper used inside .section.
+   Mirrors .page-container but allows sections to manage their
+   own horizontal padding independently.
+   ============================================================ */
+.section-content {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--section-padding-x);
+}
+
+/* ============================================================
+   TWO-COLUMN GRID — About section (text + image)
+   Desktop: two equal columns side by side
+   Mobile:  stacks vertically
+   ============================================================ */
+.grid-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--card-gap); /* 30px */
+  align-items: start;
+}
+
+/* ============================================================
+   THREE-COLUMN GRID — Rate cards
+   Desktop: three equal columns
+   Mobile:  single column (cards stack)
+   ============================================================ */
+.grid-3col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--card-gap); /* 30px */
+  align-items: start;
+  justify-items: center;
+}
+
+/* ============================================================
+   GALLERY GRID — 3x2 photo grid
+   Desktop: 3 columns × 2 rows, fixed
+   Mobile:  horizontal scroll strip (single row)
+   ============================================================ */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: var(--card-gap); /* 30px */
+}
+
+.gallery-grid__item {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: var(--border-radius-sm);
+}
+
+/* ============================================================
+   FLEX ROW — Generic horizontal layout helper
+   ============================================================ */
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--card-gap);
+}
+
+.flex-row--wrap {
+  flex-wrap: wrap;
+}
+
+.flex-row--between {
+  justify-content: space-between;
+}
+
+/* ============================================================
+   SPACER — Explicit vertical breathing room between sections
+   ============================================================ */
+.spacer-sm  { height: var(--space-3); }  /* 24px */
+.spacer-md  { height: var(--space-5); }  /* 48px */
+.spacer-lg  { height: var(--space-6); }  /* 64px */
+.spacer-xl  { height: var(--space-8); }  /* 128px */
+
+/* ============================================================
+   MOBILE RESPONSIVE ADJUSTMENTS
+   ============================================================ */
+@media (max-width: 768px) {
+  /* Tighter horizontal padding on small screens */
+  .page-container,
+  .section-content {
+    padding-inline: var(--space-3); /* 24px each side */
+  }
+
+  /* Reduced vertical section padding */
+  .section {
+    padding-block: var(--space-5); /* 48px */
+  }
+
+  /* About section: stack image below text */
+  .grid-2col {
+    grid-template-columns: 1fr;
+  }
+
+  /* Rate cards: stack vertically, center each card */
+  .grid-3col {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  /* Gallery: horizontal scroll strip instead of grid */
+  .gallery-grid {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: var(--space-2);  /* 16px between images */
+    scroll-snap-type: x mandatory;
+
+    /* Hide scrollbar while keeping scroll functionality */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .gallery-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .gallery-grid__item {
+    /* Fixed width so items don't collapse in flex context */
+    flex: 0 0 var(--card-width-mobile); /* 339px */
+    width: var(--card-width-mobile);
+    scroll-snap-align: start;
+  }
+
+  /* Stack flex rows on mobile */
+  .flex-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .flex-row--between {
+    justify-content: flex-start;
+  }
+}

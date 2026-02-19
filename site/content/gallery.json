@@ -1,0 +1,10 @@
+{
+  "images": [
+    { "src": "/assets/images/gallery-1.jpg", "alt": "Voice lesson in progress" },
+    { "src": "/assets/images/gallery-2.jpg", "alt": "Studio setup" },
+    { "src": "/assets/images/gallery-3.jpg", "alt": "Student performance" },
+    { "src": "/assets/images/gallery-4.jpg", "alt": "Group workshop" },
+    { "src": "/assets/images/gallery-5.jpg", "alt": "Recording session" },
+    { "src": "/assets/images/gallery-6.jpg", "alt": "Sarah teaching" }
+  ]
+}

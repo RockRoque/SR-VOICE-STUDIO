@@ -1,0 +1,28 @@
+{
+  "rates": [
+    {
+      "title": "free intro lesson",
+      "price": 0,
+      "priceDisplay": "free",
+      "description": "a 30-minute introductory session to see if we're a good fit.",
+      "features": ["30 minutes", "no commitment", "virtual or in-person"],
+      "checkoutUrl": "#schedule"
+    },
+    {
+      "title": "single lesson",
+      "price": 7500,
+      "priceDisplay": "$75",
+      "description": "a full 60-minute private voice lesson.",
+      "features": ["60 minutes", "personalized instruction", "virtual or in-person"],
+      "checkoutUrl": "https://checkout.waveapps.com/pay/SINGLE_CHECKOUT_ID"
+    },
+    {
+      "title": "4-lesson package",
+      "price": 20000,
+      "priceDisplay": "$200",
+      "description": "four 60-minute lessons at a discounted rate.",
+      "features": ["4 x 60 minutes", "save $100", "use within 6 weeks"],
+      "checkoutUrl": "https://checkout.waveapps.com/pay/PACKAGE_CHECKOUT_ID"
+    }
+  ]
+}
